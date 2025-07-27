@@ -563,6 +563,7 @@
                 width: 75px;
                 height: 75px;
                 font-size: 2.2rem;
+              border: none;
             }
             
             .section-title h2 {
