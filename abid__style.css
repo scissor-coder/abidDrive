@@ -1,0 +1,640 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @font-face {
+          font-family: 'Hind Siliguri Normal';
+          src: url(./files__abid/font/HindSiliguri-Regular.ttf);
+        }
+        
+        @font-face {
+          font-family: 'Hind Siliguri Bold';
+          src: url(./files__abid/font/HindSiliguri-Bold.ttf);
+        }
+        
+        :root {
+            /* Theme Variables */
+            
+            
+            /* Core Blue - Your primary color */
+  --primary: #4361ee;
+  --primary-dark: #3a56d4; /* Darker primary for hover/active states */
+  --primary-light: #8da4f4; /* Lighter primary for subtle highlights */
+  --primary-faded: #e0e7fa; /* Very light primary for backgrounds/dividers */
+
+  /* Neutrals for Text and Backgrounds */
+  --background: #ffffff; /* Clean white background */
+  --card-bg: #f8f9fa; /* Off-white for cards/sections */
+  --header-bg: #f0f2f5; /* Light gray for headers */
+  --footer-bg: #e9ecef; /* Slightly darker light gray for footers */
+
+  --text-color: #212529; /* Deep dark gray for main text */
+  --text-secondary: #495057; /* Medium dark gray for secondary text */
+  --text-faded: #6c757d; /* Lighter gray for less important text */
+
+  /* Accent (optional, can be a different hue if needed, or derived from primary) */
+  --accent: #00c6ff; /* Keeping your previous accent for a pop, or consider a blue-green */
+  --border-color: #dee2e6; /* Light gray for borders */
+  --scroll-dotNonActive: #dee2e6;
+  --download-btn: linear-gradient(360deg, var(--accent), var(--primary));
+  --copyrightBorderTop:#dee2e6;
+  
+  
+  
+  
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+           
+          
+          
+          
+          
+          
+     }
+        
+        
+        /* Dark Mode Variables */
+          .dark-mode {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #00c6ff;
+            --light: #f8f9fa;
+            --dark: #1a1d28;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --header-bg: linear-gradient(120deg, #1a1d28, #2c3e50);
+            --footer-bg: #0f172a;
+            --text-color: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --scroll-dotNonActive: rgba(255, 255, 255, 0.2);
+            --download-btn: linear-gradient(180deg, var(--accent), var(--primary));
+            --copyrightBorderTop: rgba(255, 255, 255, 0.05);
+  
+
+}
+
+
+
+
+
+
+        body {
+            font-family: 'Hind Siliguri Normal', 'Poppins', sans-serif;
+            background: var(--background);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Theme Toggle Styles */
+        .theme-toggle {
+          position: fixed;
+          top: 1.5rem;
+          right: 1.5rem;
+          width: 60px;
+          height: 30px;
+          border-radius: 15px;
+          background: rgba(255, 255, 255, 0.1);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          padding: 0 5px;
+          z-index: 101;
+          backdrop-filter: blur(5px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode .theme-toggle {
+          background: rgba(0, 0, 0, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .toggle-circle {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: #3a56d4;
+          transform: translateX(0);
+          transition: transform 0.3s ease-in-out;
+        }
+        
+        .dark-mode .toggle-circle {
+          transform: translateX(30px);
+          background: #ffd166;
+        }
+        
+        .theme-toggle i {
+          position: absolute;
+          color: white;
+          font-size: 0.8rem;
+        }
+        
+        .theme-toggle .fa-sun {
+          left: 8px;
+          opacity: 0.8;
+        }
+        
+        .theme-toggle .fa-moon {
+          right: 8px;
+          opacity: 0.8;
+        }
+
+        /* Header Styles */
+        header {
+            
+            background: var(--header-bg);
+            color: white;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(67, 97, 238, 0.2) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            width: 85px;
+            height: px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            backdrop-filter: blur(4px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            box-shadow: 0 0 30px rgba(0, 198, 255, 0.2);
+        }
+
+        h1 {
+            font-family: 'Hind Siliguri Bold';
+            font-size: 3.5rem;
+            font-weight: 700;
+            padding-left: 0.7rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 198, 255, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.85;
+            color: var(--text-secondary);
+        }
+        
+       .abidDrive-logoTxt {
+            font-family: 'Hind Siliguri Bold';
+
+            letter-spacing: -1px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 198, 255, 0.1);
+       }
+
+        /* Main Content Styles */
+        main {
+            flex: 1;
+            max-width: 1400px;
+            width: 95%;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-left: 15px;
+            color: var(--text-color);
+        }
+
+        .files-container {
+            display: flex;
+            gap: 1.8rem;
+            overflow-x: auto;
+            padding: 1.5rem 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+            margin-bottom: 3rem;
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .files-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .files-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .files-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .files-container::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        .file-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            min-width: 320px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+       .file-card a {
+         text-decoration: none;
+       }
+
+        .file-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 198, 255, 0.2);
+        }
+
+        .file-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+        }
+
+        .file-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(0, 198, 255, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.2rem;
+            color: var(--accent);
+            font-size: 1.8rem;
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.1);
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-color);
+        }
+
+        .file-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+        }
+
+        .file-meta i {
+            margin-right: 6px;
+            color: var(--accent);
+        }
+
+        .file-card p {
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .download-btn {
+            font-family: 'Hind Siliguri Normal';
+            background: var(--download-btn);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0.9rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .download-btn:hover::before {
+            opacity: 1;
+        }
+
+        .download-btn i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 3.5rem 1.5rem 2rem;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+        }
+
+        .footer-section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--copyrightBorderTop);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Scroll indicators */
+        .scroll-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .scroll-dot {
+            
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--scroll-dotNonActive);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.15rem;
+            }
+            
+            .file-card {
+                min-width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 1rem 2.5rem;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .logo {
+                width: 75px;
+                height: 75px;
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+            
+            .file-card {
+                min-width: 260px;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                width: 55px;
+                height: 55px;
+                font-size: 2rem;
+                border: 1px solid;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 26px;
+            }
+            
+            .toggle-circle {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .dark-mode .toggle-circle {
+              transform: translateX(24px);
+            }
+            
+            .files-container {
+                gap: 1.2rem;
+            }
+            
+            .file-card {
+                min-width: 240px;
+                padding: 1.3rem;
+            }
+            
+           .download-btn {
+             padding: 0.7rem 1.1rem;
+           }
+        }
+
+        /* Decorative elements */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(67, 97, 238, 0.15) 0%, transparent 70%);
+            top: 10%;
+            left: 5%;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, transparent 70%);
+            bottom: 20%;
+            right: 5%;
+        }
