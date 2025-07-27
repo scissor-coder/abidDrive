@@ -540,10 +540,10 @@
                 min-width: 280px;
             }
             .logo {
-                width: 75px;
-                height: 75px;
+                width: 65px;
+                height: 65px;
                 font-size: 2.2rem;
-               border: none;
+           
             }
         }
 
@@ -560,12 +560,6 @@
                 font-size: 1.1rem;
             }
             
-            .logo {
-                width: 75px;
-                height: 75px;
-                font-size: 2.2rem;
-              border: none;
-            }
             
             .section-title h2 {
                 font-size: 1.7rem;
