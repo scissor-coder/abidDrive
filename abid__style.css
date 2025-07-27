@@ -527,7 +527,7 @@
         }
 
         /* Responsive Design */
-        @media (min-width: 992px) {
+        @media (max-width: 992px) {
             h1 {
                 font-size: 2.8rem;
             }
@@ -539,15 +539,16 @@
             .file-card {
                 min-width: 280px;
             }
+               
             .logo {
-                width: 65px;
-                height: 65px;
-                font-size: 2.2rem;
-           
+                width: 55px;
+                height: 55px;
+                font-size: 2rem;
+                border: 1px solid;
             }
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             header {
                 padding: 3rem 1rem 2.5rem;
             }
@@ -555,8 +556,8 @@
             h1 {
                 font-size: 2.4rem;
             }
-              
-               .logo {
+               
+            .logo {
                 width: 55px;
                 height: 55px;
                 font-size: 2rem;
