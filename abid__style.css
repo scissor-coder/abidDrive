@@ -541,10 +541,9 @@
             }
                
             .logo {
-                width: 75px;
-                height: 75px;
+                width: 70px;
+                height: 70px;
                 font-size: 2rem;
-                border: 1px solid;
             }
         }
 
